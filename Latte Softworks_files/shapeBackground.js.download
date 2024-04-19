@@ -1,0 +1,41 @@
+const shapes = ["square.svg", "circle.svg", "triangle.svg", "line.svg"];
+const floaters = document.getElementById("floaters");
+
+function addShape() {
+	if (! floaters) {
+		return;
+	}
+
+	const floater = document.createElement("img");
+	const size = Math.random() * (12 - 5) + 5;
+	const colours = {
+		r: 61 / 100 * size,
+		g: 87 / 100 * size,
+		b: 113 / 100 * size
+	};
+	const floatershape = shapes[Math.floor(Math.random() * shapes.length)];
+
+	floater.src = `/assets/images/shapes/${floatershape}`;
+	floater.style.left = Math.random() * 100 + "%";
+	floater.style.width = size + "%";
+	floater.style.filter = `drop-shadow(0 0 ${size * 2}px rgba(${colours.r}, ${colours.g}, ${colours.b}, 0.15))`;
+	floater.style.zIndex = size;
+	
+	const noncircle_name = ", rotateupwards";
+	const noncircle_duration = `, ${Math.random() * 40 + 20}s`;
+	const noncircle_iter = ", infinite";
+	const noncircle_direction = `, ${Math.floor(Math.random() * 2 + 1) == 1 ? "reverse" : "normal"}`;
+	const noncircle_timing = `, ease-in-out`;
+	
+	floater.style["animation-name"] = `upwards${floatershape == "circle.svg" ? "" : noncircle_name}`;
+	floater.style["animation-duration"] = `${Math.random() * 18 + 10}s${floatershape == "circle.svg" ? "" : noncircle_duration}`;
+	floater.style["animation-iteration-count"] = `infinite${floatershape == "circle.svg" ? "" : noncircle_iter}`;
+	floater.style["animation-direction"] = `normal${floatershape == "circle.svg" ? "" : noncircle_direction}`;
+	floater.style["animation-timing-function"] = `linear${floatershape == "circle.svg" ? "" : noncircle_timing}`;
+	
+	floaters.appendChild(floater);
+}
+
+for (let i = 0; i < 12; i++) { // TODO: 30 can be a bit too much for some devices, make it dynamic based on screen size
+	setTimeout(addShape, Math.random() * 15000);
+}

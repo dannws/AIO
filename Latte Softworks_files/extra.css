@@ -1,0 +1,86 @@
+@font-face {
+    font-family: gotham;
+    src: url("/assets/fonts/gothambook.otf");
+}
+@font-face {
+    font-family: gothambold;
+    src: url("/assets/fonts/gothamblack.otf");
+}
+@font-face {
+    font-family: gothamsemibold;
+    src: url("/assets/fonts/gothammedium.otf");
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #2c3e50;
+    font-family: gothamsemibold;
+}
+
+footer {
+    flex-shrink: 0;
+    width: 100%;
+    margin-top: 30px;
+    --bs-bg-opacity: 0 !important;
+    z-index: 200; /* display over floating container objects that change their z-index */
+}
+
+p {
+    font-family: gotham;
+}
+
+.content {
+    flex: 1;
+    z-index: 200; /* display over floating container objects that change their z-index */
+}
+
+.no-link-deco {
+    text-decoration: inherit;
+}
+
+.card-link {
+    overflow: hidden;
+    color: inherit;
+    text-decoration: inherit;
+    background-color: transparent;
+    transition: 0.1s;
+}
+
+.card-link:hover {
+    background-color: #3d5771;
+}
+
+.card-image-holder {
+    width: auto;
+    height: 100px;
+}
+
+.blurbackdrop {
+    backdrop-filter: blur(7.5px);
+    background: rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15); /* .shadow */
+    border: 0; /* .border-0 */
+}
+
+.team-icon {
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+.tag {
+    border-radius: 5px;
+    padding: 2px 5px;
+    margin-right: 5px;
+    font-size: 12px;
+    font-family: gotham;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.tag-red {
+    background-color: #fd685785;
+    filter: drop-shadow(0 0 5px #fd6757);
+}
